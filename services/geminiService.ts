@@ -33,3 +33,20 @@ export const getAnalyticsInsight = async (data: any): Promise<string> => {
     return "Consistently track your high-performing products to optimize stock levels.";
   }
 };
+
+// Added missing export for collaboration pitch generation using Gemini 3 Flash
+export const generateCollabPitch = async (creatorName: string, niche: string, product: string): Promise<string> => {
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: `Draft a short, compelling collaboration pitch for an influencer named ${creatorName} who specializes in ${niche}. We want them to promote ${product}. Keep it professional yet exciting.`,
+      config: {
+        maxOutputTokens: 250,
+      }
+    });
+    return response.text || "Hi! We love your content and would love to collaborate with you on our new collection.";
+  } catch (error) {
+    console.error("Gemini Pitch Error:", error);
+    return "Hello! We are impressed by your profile and would like to discuss a potential partnership regarding our latest products.";
+  }
+};

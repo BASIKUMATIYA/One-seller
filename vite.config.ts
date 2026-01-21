@@ -1,3 +1,4 @@
+
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -5,7 +6,8 @@ export default defineConfig({
     'process.env': process.env
   },
   server: {
-    historyApiFallback: true
+    // Fixed: historyApiFallback is not a valid property in Vite's ServerOptions.
+    // Vite handles SPA fallback automatically in development mode.
   },
   build: {
     outDir: 'dist',
