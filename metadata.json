@@ -1,0 +1,8 @@
+{
+  "name": "123 sELL",
+  "description": "A comprehensive, AI-powered seller dashboard for managing products, reels, creator collaborations, communities, and live streaming with deep data analytics.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
